@@ -6,6 +6,7 @@ mysql_pw        = 'somePW'    # PASSWORD
 mysql_db        = 'SenseData' # NAME OF THE DATABASE
 
 global db
-db = MySQLdb.connect(mysql_server,mysql_user,mysql_pw,mysql_db)
-if db == False:
+try:
+    db = MySQLdb.connect(mysql_server,mysql_user,mysql_pw,mysql_db)
+except Exception as e:
     print("Connection to the DB failed!")
