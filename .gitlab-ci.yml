@@ -1,0 +1,19 @@
+
+
+build-mysql-image:
+    image: mysql:5.5
+    services:
+    - mysql:5.5
+    variables:
+    #Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
+     MYSQL_DATABASE: hello_world_test
+     MYSQL_ROOT_PASSWORD: mysql
+    script:
+    - mysql --version
+    - mysql --version
+#    - mysqladmin --host=mysql -u root password 'mysql'
+#    - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=localhost "$MYSQL_DATABASE"
+    tags:
+    - docker
+
+
