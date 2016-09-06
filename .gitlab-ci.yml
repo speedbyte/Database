@@ -1,19 +1,16 @@
-
-
 build-mysql-image:
-    image: mysql:5.5
+    image: ubuntu:latest
     services:
-    - mysql:5.5
+    - mysql:latest
     variables:
     #Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
      MYSQL_DATABASE: hello_world_test
-     MYSQL_ROOT_PASSWORD: mysql
+     MYSQL_ALLOW_EMPTY_PASSWORD: "1"
     script:
+    - apt update
+    - apt install mysql-client -y
     - mysql --version
-    - mysql --version
-#    - mysqladmin --host=mysql -u root password 'mysql'
-#    - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=localhost "$MYSQL_DATABASE"
+    - sleep 5
+    - mysql -h $MYSQL_PORT_3306_TCP_ADDR -P $MYSQL_PORT_3306_TCP_PORT -u root -D $MYSQL_DATABASE <<< "SELECT version();"
     tags:
     - docker
-
-
