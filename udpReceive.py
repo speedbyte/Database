@@ -10,7 +10,7 @@ sock = socket .socket(socket.AF_INET, # Internet
 sock.bind((UDP_IP, UDP_PORT))
 
 def insertQuery(ts, ACC_X, ACC_Y, ACC_Z, MAG_X, MAG_Y, MAG_Z, G_ROLL, G_PITCH, G_YAW, TEMP, PRESS, M1, M2, M3, M4):
-    print TEMP
+    #print ts
     try:
         dbc.db.query("""
         INSERT INTO `SenseData`.`DATA`

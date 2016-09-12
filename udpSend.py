@@ -8,7 +8,8 @@ UDP_PORT = 5000
 
 t = time.time()
 #Sys. time in UNIX epoch
-ts = "Time"+str(t+.01)+"\n"
+tim_S = "Time"+str(t)[:-3]+"\n"
+tim_M = "Time"+str(t*.01)[-3:]+"\n"
 #random ACC values
 ACC_X = "AccX"+str(random.randint(-25500,25500)*0.01)+"\n"
 ACC_Y = "AccY"+str(random.randint(-25500,25500)*0.01)+"\n"
@@ -30,7 +31,7 @@ M2 = "M2"+str(random.randint(-25500,25500)*0.01)+"\n"
 M3 = "M3"+str(random.randint(-25500,25500)*0.01)+"\n"
 M4 = "M4"+str(random.randint(-25500,25500)*0.01)
 
-MESSAGE = ts+ACC_X+ACC_Y+ACC_Z+MAG_X+MAG_Y+MAG_Z+G_YAW+G_PITCH+G_ROLL+TEMP+PRESS+M1+M2+M3+M4
+MESSAGE = tim_S+tim_M+ACC_X+ACC_Y+ACC_Z+MAG_X+MAG_Y+MAG_Z+G_YAW+G_PITCH+G_ROLL+TEMP+PRESS+M1+M2+M3+M4
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
