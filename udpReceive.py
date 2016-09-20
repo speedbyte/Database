@@ -5,7 +5,7 @@ import socket
 UDP_IP = ""
 UDP_PORT = 5000
 
-sock = socket .socket(socket.AF_INET, # Internet
+sock = socket .socket(socket.AF_INET, # Internet(IPv4)
                      socket.SOCK_DGRAM) # UDP
 sock.bind((UDP_IP, UDP_PORT))
 
